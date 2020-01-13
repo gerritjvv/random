@@ -2,6 +2,8 @@ package com.gerritjvv.random.msws;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertTrue;
 
 public class MsWsTest {
@@ -15,7 +17,9 @@ public class MsWsTest {
         long lastN = 0;
         for(int i = 0; i < 1000; i++) {
             long tmp = lastN;
-            lastN = MsWs.getInstance().getAsLong();
+            Random rnd = MsWs.getInstance();
+            lastN = rnd.nextLong();
+            System.out.println(lastN);
             assertTrue(tmp != lastN);
         }
 

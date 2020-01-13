@@ -37,7 +37,8 @@
 
 package com.gerritjvv.random.msws;
 
-import java.util.function.LongSupplier;
+import java.util.Random;
+import java.util.function.IntSupplier;
 
 /**
  * Usage: <br>
@@ -46,7 +47,7 @@ import java.util.function.LongSupplier;
  *     </pre>
  * Not threadsafe. The getInstance() methods returns a thread local instance.
  */
-public class MsWs implements LongSupplier {
+public class MsWs extends Random implements IntSupplier {
 
 
     private static final ThreadLocal<MsWs> msWsThreadLocal =
@@ -61,11 +62,11 @@ public class MsWs implements LongSupplier {
     }
 
     @Override
-    public long getAsLong() {
+    public int getAsInt() {
         x *= x;
         x += (w += s);
         x = (x >> 32) | (x << 32);
-        return x;
+        return (int) x;
     }
 
     /**
@@ -75,6 +76,20 @@ public class MsWs implements LongSupplier {
      */
     public static MsWs getInstance() {
         return msWsThreadLocal.get();
+    }
+
+    @Override
+    public synchronized void setSeed(long seed) {
+        this.s = Init.randDigits(seed);
+        this.x = s;
+        this.w = s;
+    }
+
+    @Override
+    protected int next(int bits) {
+        assert bits <= 32;
+
+        return getAsInt();
     }
 
 }
