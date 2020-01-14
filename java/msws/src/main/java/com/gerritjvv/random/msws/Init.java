@@ -58,7 +58,6 @@ import java.util.function.LongSupplier;
  */
 public class Init {
 
-
     /* 30 sconst values.  Each provide 100 million unique outputs */
 
     private static final long[] sconst = {
