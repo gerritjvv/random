@@ -1,11 +1,11 @@
-# Pure Java PRNG of the Generator Middle Square Weyl Sequence method in Pure Java
+# PRNG using the Middle Square Weyl Sequence method.
 
 ## Introduction
 
 
 The <a href="https://en.wikipedia.org/wiki/Middle-square_method">Middle Square Weyl Sequence PRNG</a> is one of the fastest methods of <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">psuedo random number generation</a> available.
 
-This implementation takes directly from the C implementation and makes a few modifications to make it Java friendly.
+This implementation takes directly from the C implementation and makes a few modifications to make 100% Java.
 
 The original paper can be found at <a href="https://arxiv.org/abs/1704.00358">https://arxiv.org/abs/1704.00358</a>.
 
