@@ -1,24 +1,24 @@
-# Pure Java implementation of the Middle Square Weyl Sequence method
+# Pure Java PRNG of the Generator Middle Square Weyl Sequence method in Pure Java
 
 ## Introduction
 
+
+The <a href="https://en.wikipedia.org/wiki/Middle-square_method">Middle Square Weyl Sequence PRNG</a> is one of the fastest methods of <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">psuedo random number generation</a> available.
+
+This implementation takes directly from the C implementation and makes a few modifications to make it Java friendly.
+
+The original paper can be found at <a href="https://arxiv.org/abs/1704.00358">https://arxiv.org/abs/1704.00358</a>.
+
 ```java
-
-long randN = MsWs.getInstance().getAsInt();
-
-// or using the Random class
 Random rnd = MsWs.getInstance();
 rnd.nextLong();
-
 ```
 
-## Benchmarks
+## How fast is it?
 
-These were run on my own macbook pro.
-For your own delight, please run the benchmarks on a machine of your choosing.
+Its about 3.5 times faster than the standard Java Random class.
 
-That said: The benchmarks look very interesting MSWS is ~3.5 times faster.
-
+### Benchmarks
 
 ```bash
 
@@ -33,5 +33,5 @@ MsWsBenchTest.MsWsNextInt  thrpt   60  327446204.873 ± 3085282.287  ops/s
 
 ## Licence
 
-The original C implementation is published on `GPL`, I have publishes this code under `GPLv3`.
+The original C implementation is published on `GPLv3`, and thus the Java code is under `GPLv3` also.
  
